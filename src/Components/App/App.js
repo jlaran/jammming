@@ -12,8 +12,28 @@ class App extends Component {
         { name: "aaa", artist: "aaa", album: "aaaa" },
         { name: "aaa", artist: "aaa", album: "aaaa" },
         { name: "aaa", artist: "aaa", album: "aaaa" }
-      ]
+      ],
+      playlistName: "Some Name",
+      playlistTracks: [
+        { name: "eeee", artist: "eeee", album: "eeee" },
+        { name: "ffff", artist: "ffff", album: "ffff" },
+        { name: "gggg", artist: "gggg", album: "gggg" }
+      ] 
     }
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+  }
+
+  addTrack(track) {
+    this.state.playlistTracks.map(song => {
+      if (song.id !== track.id) {
+        this.state.playlistTracks.push(track);
+      }
+    })
+  }
+
+  removeTrack(track) {
+    
   }
 
   render() {
@@ -23,8 +43,8 @@ class App extends Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults SearchResults={this.state.searchResults}/>
-            <Playlist />
+            <SearchResults SearchResults={this.state.searchResults} onAdd={this.addTrack} onRemove={this.onRemove}/>
+            <Playlist PlaylistTracks={this.state.playlistName} PlaylistName={this.state.playlistTracks} />
           </div>
         </div>
       </div>
