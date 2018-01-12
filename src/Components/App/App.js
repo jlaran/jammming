@@ -52,10 +52,6 @@ class App extends Component {
     });
   }
 
-  handleNameChange(event){
-  	this.onNameChange(event);
-  }
-
   savePlaylist(){
   	let trackURIs;
   	this.state.playlistTracks.map(element => {
