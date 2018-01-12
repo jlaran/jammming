@@ -3,16 +3,17 @@ import './Playlist.css';
 import TrackList from '../TrackList/TrackList'
 
 class Playlist extends Component {
-	onchangeInput() {
-		
+	constructor(props){
+		super(props);
+		this.onNameChange = this.props.onNameChange.bind(this);
 	}
-
+	
 	render() {
 		return (
 			<div className="Playlist">
-			  <input value={'New Playlist'} onChange={this.onchangeInput}/>
+			  <input value={'New Playlist'} onChange={this.handleNameChange}/>
 			  <TrackList tracks={this.props.PlaylistTracks} />
-			  <a className="Playlist-save">SAVE TO SPOTIFY</a>
+			  <a className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</a>
 			</div>
 		);
 	}
