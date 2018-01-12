@@ -6,6 +6,6 @@ let Spotify = {
 	}
 };
 
-const token = ''; 
+let token = ''; 
 
 export Spotify;
